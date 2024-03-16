@@ -1,19 +1,11 @@
 package org.example;
 
 
-import org.example.business.BookService;
-import org.example.business.BookServiceImpl;
-import org.example.dataAccess.BookRepositoryImpl;
-import org.example.entities.Book;
-import org.example.entities.Borrower;
-import org.example.entities.Employee;
-import org.example.logging.DatabaseLogger;
-import org.example.logging.FileLogger;
-import org.example.logging.Logger;
-import org.example.logging.MailLogger;
-
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import org.example.business.*;
+import org.example.dataAccess.BookRepositoryImpl;
+import org.example.entities.*;
+import org.example.logging.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +19,7 @@ public class Main {
         LocalDate returnDateForBook3 = LocalDate.of(2024, 3, 15);
 
         Borrower borrower1 = new Borrower(1, "Burak", "burakonurerten@gmail.com", "5413712874");
-        Borrower borrower2 = new Borrower(2, "Halil", "halil@gmail.com", "313123123");
+        Borrower borrower2 = new Borrower(2, "Yiğit", "yiğit@gmail.com", "313123123");
         Borrower borrower3 = new Borrower(3, "Ibrahim", "ibrahim@gmail.com", "123123123");
 
         Employee employee = new Employee(1, "Halit", "halit@gmail.com", "123123123");

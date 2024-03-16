@@ -1,14 +1,11 @@
 package org.example.business;
 
 
-import org.example.dataAccess.BookRepository;
-import org.example.entities.Book;
-import org.example.entities.Borrower;
-import org.example.entities.Employee;
-import org.example.logging.*;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import org.example.dataAccess.BookRepository;
+import org.example.entities.*;
+import org.example.logging.BaseLogger;
 
 public class BookServiceImpl implements BookService{
     BaseLogger logger;
@@ -33,8 +30,8 @@ public class BookServiceImpl implements BookService{
         long daysBetween = ChronoUnit.DAYS.between(book.getReturnDate(), LocalDate.now());
 
         if (daysBetween > 5) {
-            System.out.println("You return the book " + daysBetween + " days late");
-            repository.addToDb(book);
+            logger.logFirst("You return the book " + daysBetween + " days late");
         }
+        repository.addToDb(book);
     }
 }
